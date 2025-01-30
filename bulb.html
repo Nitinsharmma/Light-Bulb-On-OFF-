@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulb</title>
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column; /* Stack elements vertically */
+            height: 100vh; /* Full height of the viewport */
+            margin: 0; /* Remove default margin */
+            transition: background-color 0.5s; /* Smooth transition for background color */
+        }
+        img.emojione {
+            margin: 0 !important; /* Corrected placement of !important */
+            height: 100px;
+            width: 50px;
+            transition: filter 0.5s; /* Smooth transition for filter effect */
+        }
+        div#wrong-test {
+            border-top: 1px solid violet;
+            border-bottom: 1px solid limegreen;
+            display: inline-block;
+            text-align: center; /* Center text inside the div */
+            color: white; /* Set text color to white for visibility */
+        }
+        span.emoji {
+            font-size: 150px;
+            vertical-align: middle;
+            line-height: 2;
+        }
+        .glow {
+            filter: drop-shadow(0 0 20px yellow); /* Glow effect for the bulb */
+        }
+        /* Rope button styles */
+        .rope-button {
+            background-color: #8B4513; /* Brown color for the rope */
+            color: white; /* Text color */
+            border: none; /* Remove default border */
+            padding: 10px 20px; /* Padding for the button */
+            font-size: 16px; /* Font size */
+            cursor: pointer; /* Pointer cursor on hover */
+            border-radius: 5px; /* Rounded corners */
+            text-align: center; /* Center text */
+            text-transform: uppercase; /* Uppercase text */
+            letter-spacing: 1px; /* Spacing between letters */
+            transition: background-color 0.3s; /* Smooth transition for background color */
+        }
+        .rope-button:hover {
+            background-color: #A0522D; /* Lighter brown on hover */
+        }
+    </style>
+</head>
+<body>
+    <div id="wrong-test">
+        <span class="emoji" id="bulb">💡</span>
+    </div>
+    <button id="toggle-button" class="rope-button">Light ON</button>
+
+    <script>
+        const button = document.getElementById('toggle-button');
+        const bulb = document.getElementById('bulb');
+        const body = document.body;
+
+        button.addEventListener('click', () => {
+            // Toggle the glow class on the bulb
+            bulb.classList.toggle('glow');
+
+            // Change the background color based on the bulb's state
+            if (bulb.classList.contains('glow')) {
+                body.style.backgroundColor = 'rgba(255, 255, 0, 0.5)'; // Light yellow glow
+                button.textContent = 'Light OFF'; // Change button text
+            } else {
+                body.style.backgroundColor = 'black'; // Reset to black
+                button.textContent = 'Light ON'; // Change button text
+            }
+        });
+    </script>
+</body>
+</html
